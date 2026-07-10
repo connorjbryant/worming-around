@@ -12,7 +12,7 @@ jQuery(function($){
         var gameLiTotal = $("#gameList li").length;
         var randGameLi = Math.floor(Math.random() * gameLiTotal);
 
-        $("gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
+        $("#gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
     }
 });
 
