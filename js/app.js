@@ -19,11 +19,15 @@ jQuery(function($){
     $("#gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
 
     $("#startBtn").on("click", function(){
-        $("#gameList").append(`<li class="player">Player</li>`);
+        $("#gameList").eq(0).append(`<li class="player">Player</li>`);
         $(this).hide();
     });
 
     $(document).on("keydown", function(e){
+        // Prevent arrow keys from scrolling the browswer window
+        if(["ArrowUp", "ArrowDown"].indexOf(e.key) > -1){
+            e.preventDefault();
+        }
         switch (e.key){
             case "ArrowUp":
                 moveUp();
@@ -35,11 +39,30 @@ jQuery(function($){
     });
 
     function moveUp(){
-        console.log("up");
+        var player = $(".player");
+        if (!player.length) return; // Stop the game if player is null
+
+        // Get the parent li index
+        var currentIndex = $player.parent().index();
+
+        // Move up if we're not at the top (index 0)
+        if (currentIndex > 0){
+            $("#gameList li").eq(currentIndex - 1).append($player);
+        }
     }
 
     function moveDown(){
-        console.log("down");
+        var player = $(".player");
+
+        if (!player.length) return; // Stop the game if player is null
+
+        var currentIndex = player.parent().index();
+        var totalLi = $("#gameList li").length;
+
+        // Move down if we're not at the last index
+        if (currentIndex < totalLi - 1){
+            $("#gameList li").eq(currentIndex + 1).append(player);
+        }
     }
 });
 
