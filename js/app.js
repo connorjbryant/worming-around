@@ -8,6 +8,9 @@ jQuery(function($){
     // For loop to append the list elements
     for (let i = 1; i <= randomNum; i++){
         $("#gameList").append(`<li>Item #${i}</li>`);
+
+        var gameLi = $("#gameList li").length.random();
+        console.log(gameLi);
     }
 });
 
