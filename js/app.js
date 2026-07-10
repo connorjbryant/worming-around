@@ -1,5 +1,9 @@
 console.log("Running");
 
-$("h1").on("click", function(){
+jQuery(function($){
+
+    $("h1").on("click", function(){
     alert("Test");
-})
+    })
+
+});
