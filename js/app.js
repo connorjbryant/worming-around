@@ -5,7 +5,7 @@ jQuery(function($){
     var currentIndex = player.parent().index();
 
     // Random number generator 1-10
-    var randomNum = Math.floor(Math.random() * 10) + 1;
+    var randomNum = Math.floor(Math.random() * 9) + 2;
 
     // List item generation
     for (var i = 1; i <= randomNum; i++){
@@ -14,12 +14,16 @@ jQuery(function($){
 
     var gameItems = $("#gameList > li");
 
-    var choices = gameItems.not(":eq(" + currentIndex + ")");
+    // The friend worm should not start at 0. Player starts there
+    var choices = gameItems.not(":eq(0)");
 
-    // Friend worm goes on an li element besides the player one
-    var randomFriendIndex = choices.eq(Math.floor(Math.random() * choices.length));
+    // Select a random list item for the friend
+    var friendItem = choices.eq(
+        Math.floor(Math.random() * choices.length)
+    );
 
-    gameItems.eq(randomFriendIndex).append('<div class="worm friend-worm"></div>');
+    // Add friend worm to the selected item
+    friendItem.append('<div class="worm friend-worm"></div>');
 
     $("#startBtn").on("click", function(){
         // Player goes on first list item
