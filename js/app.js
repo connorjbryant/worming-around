@@ -4,10 +4,27 @@ jQuery(function($){
     // Get the parent li index
     var currentIndex = player.parent().index();
 
-    // Generate a random number from 1 to 10
-    const minAmt = 1;
-    const maxAmt = 10;
-    const randomNum =  Math.max(1, Math.floor(Math.random() * (maxAmt - minAmt) + 1) + minAmt);
+    // Random number generator 1-10
+    var randomNum = Math.floor(Math.random() * 10) + 1;
+
+    // List item generation
+    for (var i = 1; i <= randomNum; i++){
+        $("#gameList").append("<li>" + i + "</li>");
+    }
+
+    var gameItems = $("#gameList > li");
+
+    // Friend worm goes on a random li element
+    var randomFriendIndex = Math.floor(Math.random() * gameItems.length);
+
+    gameItems.eq(randomFriendIndex).append('<div class="worm friend-worm"></div>');
+
+    $("#startBtn").on("click", function(){
+        // Player goes on first list item
+        gameItems.eq(0).append(player);
+        
+        $(this).hide();
+    })
 
     // For loop to append the list elements
     for (let i = 1; i <= randomNum; i++){
@@ -26,29 +43,38 @@ jQuery(function($){
     });
 
     $(document).on("keydown", function(e){
-        switch (e.key){
+        // Avoid movement logic if player is null
+        if (!player.parent("li").length){
+            return;
+        }
+
+        switch (e.key) {
             case "ArrowUp":
+                e.preventDefault();
                 moveUp();
                 break;
             case "ArrowDown":
+                e.preventDefault();
                 moveDown();
                 break;
         }
     });
 
     function moveUp(){
-        // Move up if we're not at the top (index 0)
-        if (currentIndex > 0){
-            $("#gameList li").eq(currentIndex - 1).append($player);
+        var currentLi = player.parent("li");
+        var previousLi = currentLi.prev("li");
+
+        if (previousLi.length){
+            player.appendTo(previousLi);
         }
     }
 
     function moveDown(){
-        var totalLi = $("#gameList li").length;
+        var currentLi = player.parent("li");
+        var nextLi = currentLi.next("li");
 
-        // Move down if we're not at the last index
-        if (currentIndex < totalLi - 1){
-            $("#gameList li").eq(currentIndex + 1).append(player);
+        if (nextLi.length){
+            player.appendTo(nextLi);
         }
     }
 });
