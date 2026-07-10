@@ -15,6 +15,10 @@ jQuery(function($){
     var randGameLi = Math.floor(Math.random() * gameLiTotal);
 
     $("#gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
+
+    $("#startBtn").on("click", function(){
+        $("#gameList").append(`<li>Player</li>`);
+    });
 });
 
 /**
