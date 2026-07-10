@@ -9,8 +9,10 @@ jQuery(function($){
     for (let i = 1; i <= randomNum; i++){
         $("#gameList").append(`<li>Item #${i}</li>`);
 
-        var gameLi = $("#gameList li").length.random();
-        console.log(gameLi);
+        var gameLiTotal = $("#gameList li").length;
+        var randGameLi = Math.floor(Math.random() * gameLiTotal);
+
+        $("gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
     }
 });
 
