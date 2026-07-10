@@ -1,5 +1,7 @@
 jQuery(function($){
 
+    var player = $(".player");
+
     // Generate a random number from 1 to 10
     const minAmt = 1;
     const maxAmt = 10;
@@ -17,9 +19,28 @@ jQuery(function($){
     $("#gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
 
     $("#startBtn").on("click", function(){
-        $("#gameList").append(`<li>Player</li>`);
+        $("#gameList").append(`<li class="player">Player</li>`);
         $(this).hide();
     });
+
+    $(document).on("keydown", function(e){
+        switch (e.key){
+            case "ArrowUp":
+                moveUp();
+                break;
+            case "ArrowDown":
+                moveDown();
+                break;
+        }
+    });
+
+    function moveUp(){
+        console.log("up");
+    }
+
+    function moveDown(){
+        console.log("down");
+    }
 });
 
 /**
