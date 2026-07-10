@@ -12,8 +12,8 @@ jQuery(function($){
     // For loop to append the list elements
     for (let i = 1; i <= randomNum; i++){
         $(gameList).append(`<li>Bullet</li>`);
-        $(gameList).next().eq(randomNum).append(`<div>Worm</div>`);
-        //$(gameListItem).append(`<div>Worm</div>`);
+        //$(gameList).next().eq(randomNum).append(`<div>Worm</div>`);
+        $(gameListItem).append(`<div>Worm</div>`);
     }
 });
 
