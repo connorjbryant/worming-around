@@ -10,12 +10,8 @@ jQuery(function($){
 
     // For loop to append the list elements
     for (let i = 1; i <= randomNum; i++){
-        $(gameList).append(`<li>Item #${i}</li>`);
+        $(gameList).append(`<li><div class='worm'></div></li>`);
     }
-
-    $(startBtn).on("click", function(){
-        $(gameList).append("<div class='worm'>Worm</div>");
-    });
 });
 
 /**
