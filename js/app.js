@@ -2,6 +2,7 @@ jQuery(function($){
 
     var startBtn = $("#startBtn");
     var gameList = $("#gameList");
+    var gameListItem = $("#gameList li");
 
     // Generate a random number from 1 to 10
     const minAmt = 1;
@@ -10,7 +11,8 @@ jQuery(function($){
 
     // For loop to append the list elements
     for (let i = 1; i <= randomNum; i++){
-        $(gameList).append(`<li><div class='worm'></div></li>`);
+        $(gameList).append(`<li>Bullet</li>`);
+        $(gameListItem).eq(randomNum).append("<div class='worm'></div>");
     }
 });
 
