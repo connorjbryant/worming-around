@@ -6,7 +6,7 @@ jQuery(function($){
     const randomNum =  Math.floor(Math.random() * (maxAmt - minAmt + 1)) + minAmt;
 
     // For loop to append the list elements
-    for (let i = 1; i <= randomNum; i++){
+    for (let i = 1; i < randomNum; i++){
         $("#gameList").append(`<li>Item #${i}</li>`);
     }
 
