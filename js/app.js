@@ -1,6 +1,6 @@
 jQuery(function($){
 
-    var player = $("<div class='worm'></div>");
+    var player = $("<div class='player-worm'></div>");
     // Get the parent li index
     var currentIndex = player.parent().index();
 
@@ -26,10 +26,6 @@ jQuery(function($){
     });
 
     $(document).on("keydown", function(e){
-        // Prevent arrow keys from scrolling the browswer window
-        if(["ArrowUp", "ArrowDown"].indexOf(e.key) > -1){
-            e.preventDefault();
-        }
         switch (e.key){
             case "ArrowUp":
                 moveUp();
