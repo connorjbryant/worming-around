@@ -1,6 +1,6 @@
 jQuery(function($){
 
-    var player = $(".player");
+    var player = $("#gameList li").append(`<div class="worm"></div>`);
 
     // Generate a random number from 1 to 10
     const minAmt = 1;
