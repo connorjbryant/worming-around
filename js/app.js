@@ -18,6 +18,7 @@ jQuery(function($){
 
     $("#startBtn").on("click", function(){
         $("#gameList").append(`<li>Player</li>`);
+        $(this).hide();
     });
 });
 
