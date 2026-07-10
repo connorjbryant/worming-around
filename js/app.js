@@ -1,6 +1,8 @@
 jQuery(function($){
 
-    var player = $("#gameList li").append(`<div class="worm"></div>`);
+    var player = $("<div class='worm'></div>");
+    // Get the parent li index
+    var currentIndex = player.parent().index();
 
     // Generate a random number from 1 to 10
     const minAmt = 1;
@@ -19,7 +21,7 @@ jQuery(function($){
     $("#gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
 
     $("#startBtn").on("click", function(){
-        $("#gameList").eq(0).append(`<li class="player">Player</li>`);
+        $("#gameList").eq(0).append(player);
         $(this).hide();
     });
 
@@ -39,12 +41,6 @@ jQuery(function($){
     });
 
     function moveUp(){
-        var player = $(".player");
-        if (!player.length) return; // Stop the game if player is null
-
-        // Get the parent li index
-        var currentIndex = $player.parent().index();
-
         // Move up if we're not at the top (index 0)
         if (currentIndex > 0){
             $("#gameList li").eq(currentIndex - 1).append($player);
@@ -52,11 +48,6 @@ jQuery(function($){
     }
 
     function moveDown(){
-        var player = $(".player");
-
-        if (!player.length) return; // Stop the game if player is null
-
-        var currentIndex = player.parent().index();
         var totalLi = $("#gameList li").length;
 
         // Move down if we're not at the last index
