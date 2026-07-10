@@ -12,7 +12,7 @@ jQuery(function($){
     // For loop to append the list elements
     for (let i = 1; i <= randomNum; i++){
         $(gameList).append(`<li>Bullet</li>`);
-        $(gameListItem).eq(randomNum).append("<div class='worm'></div>");
+        $(gameListItem).eq(i).append("<div class='worm'></div>");
     }
 });
 
