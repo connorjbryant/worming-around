@@ -14,8 +14,10 @@ jQuery(function($){
 
     var gameItems = $("#gameList > li");
 
-    // Friend worm goes on a random li element
-    var randomFriendIndex = Math.floor(Math.random() * gameItems.length);
+    var choices = gameItems.not(":eq(" + currentIndex + ")");
+
+    // Friend worm goes on an li element besides the player one
+    var randomFriendIndex = choices.eq(Math.floor(Math.random() * choices.length));
 
     gameItems.eq(randomFriendIndex).append('<div class="worm friend-worm"></div>');
 
