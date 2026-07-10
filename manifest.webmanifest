@@ -1,6 +1,6 @@
 {
     "name": "Worming Around",
-    "short_name": "WA",
+    "short_name": "WormingAround",
     "description": "Worming Around Game",
     "scope": "/worming-around/",
     "start_url": "/worming-around/",
