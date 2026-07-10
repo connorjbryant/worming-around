@@ -24,22 +24,6 @@ jQuery(function($){
         gameItems.eq(0).append(player);
         
         $(this).hide();
-    })
-
-    // For loop to append the list elements
-    for (let i = 1; i <= randomNum; i++){
-        $("#gameList").append(`<li>Item #${i}</li>`);
-    }
-
-    // Put worm on random list element
-    var gameLiTotal = $("#gameList li").length;
-    var randGameLi = Math.floor(Math.random() * gameLiTotal);
-
-    $("#gameList li").eq(randGameLi).append(`<div class="worm"></div>`);
-
-    $("#startBtn").on("click", function(){
-        $("#gameList").eq(0).append(player);
-        $(this).hide();
     });
 
     $(document).on("keydown", function(e){
